@@ -1,30 +1,30 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import avatar from '../../assets/portfolio-images/bryan-avatar.jpg'
 
-function Nav() {
-    function categorySelected(name){
-        console.log(`${name} clicked`)
-    }
-    const categories = [
-        {
-          name: "commercial",
-          description:
-            "Photos of grocery stores, food trucks, and other commercial projects",
-        },
-        { name: "portraits", description: "Portraits of people in my life" },
-        { name: "food", description: "Delicious delicacies" },
-        {
-          name: "landscape",
-          description: "Fields, farmhouses, waterfalls, and the beauty of nature",
-        },
-      ];
+function Nav(props) {
+    const {
+        categories=[],
+        setCurrentCategory,
+        currentCategory
+    } = props;
+
+    useEffect(()=>{
+        document.title = currentCategory.name;
+    }, [currentCategory]);
+
     return (
-        <header>
+        <header className="flex-row px-1">
+            <h2>
+                <img src={avatar} alt="bryan-avatar"/>
+                <a data-testid="link" href="/">
+                    
+                    Bryan Dumpit: Web Development Portfolio
+                </a>
+            </h2>
             <nav>
                 <ul className="flex-row">
                     <li className="mx-2">
-                        <a href="#about">
-                            About Me
-                        </a>
+                        <p>About Me</p>
                     </li>
                     <li>
                         <span>Portfolio</span>
@@ -37,10 +37,16 @@ function Nav() {
                     </li>
                      {categories.map((category)=> (
                         <li
-                            className="mx-1"
+                            className={`mx-1 ${
+                                currentCategory.name === category.name && 'navActive'
+                            }`}
                             key={category.name}
                         >
-                            <span onClick={()=> categorySelected(category.name)}>
+                            <span 
+                                onClick={()=> {
+                                    setCurrentCategory(category)
+                                }}
+                            >
                                 {category.name}
                             </span>
                         </li>
