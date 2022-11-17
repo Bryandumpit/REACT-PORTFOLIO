@@ -3,14 +3,15 @@ import avatar from '../../assets/portfolio-images/bryan-avatar.jpg'
 
 function Nav(props) {
     const {
-        categories=[],
-        setCurrentCategory,
-        currentCategory
+        navbar=[],
+        setNavbarSelected,
+        navbarSelected
     } = props;
 
     useEffect(()=>{
-        document.title = currentCategory.name;
-    }, [currentCategory]);
+        document.title = navbarSelected.name}, [navbarSelected]
+    )
+    
 
     return (
         <header className="flex-row px-1">
@@ -23,34 +24,23 @@ function Nav(props) {
             </h2>
             <nav>
                 <ul className="flex-row">
-                    <li className="mx-2">
-                        <p>About Me</p>
-                    </li>
-                    <li>
-                        <span>Portfolio</span>
-                    </li>
-                    <li>
-                        <span>Resume</span>
-                    </li>
-                    <li>
-                        <span>Contact Me</span>
-                    </li>
-                     {categories.map((category)=> (
+                    
+                    {navbar.map((nav)=> (
                         <li
-                            className={`mx-1 ${
-                                currentCategory.name === category.name && 'navActive'
+                            className ={`mx-1 ${
+                                navbarSelected.name === nav.name && 'navActive'
                             }`}
-                            key={category.name}
-                        >
-                            <span 
-                                onClick={()=> {
-                                    setCurrentCategory(category)
-                                }}
+                            key={nav.name}
                             >
-                                {category.name}
-                            </span>
-                        </li>
-                     ))}
+                                <span
+                                    onClick={()=>{
+                                        setNavbarSelected(nav);
+                                    }}
+                                >
+                                    {nav.name}
+                                </span>
+                            </li>
+                    ))}
                 </ul>
             </nav>
         </header>

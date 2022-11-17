@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-const PhotoList = ({category}) => {
+const Works = ({category}) => {
 
     const [photos] = useState([
         {
@@ -118,4 +118,4 @@ const PhotoList = ({category}) => {
     )
 }
 
-export default PhotoList;
+export default Works;

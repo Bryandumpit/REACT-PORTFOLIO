@@ -1,19 +1,18 @@
 import React from 'react';
 
-import PhotoList from "../../components/Photolist";
+import Works from "../Works";
 
 
 
-function Portfolio({currentCategory}) {
-    const {name, description} = currentCategory;
+function Portfolio() {
+    
 
     
 
     return (
         <section>
-            <h1 data-testid="h1tag">{name}</h1>
-            <p>{description}</p>
-            <PhotoList category={currentCategory.name}></PhotoList>
+            <h1 data-testid="h1tag">Checkout My Works!</h1>
+            
         </section>
     )
 }
