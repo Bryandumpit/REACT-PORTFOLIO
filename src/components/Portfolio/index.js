@@ -18,7 +18,7 @@ function Portfolio() {
           description: 'Every now and then we need a break from work or study. Sometimes we enjoy scrolling through funny memes and if we have a particularly good one we share them too. Giglr was developed using the MVC model to provide this service to users.',
           builtWith:['JavaScript', 'Node.js', 'mySQL', 'sequelize', 'bcrypt', 'cloudinary', 'Express.js', 'Bootstrap', 'Handlebars.js'],
           screenshot: 'giglr.png',
-          url:'https://giglr.herokuapp.com/'
+          url:'https://giglr-app.herokuapp.com/'
         },
         {
           name: 'StarShip',
