@@ -17,7 +17,7 @@ function Nav(props) {
         <header className="flex-row px-1">
             <h2>
                 <img src={avatar} alt="bryan-avatar"/>
-                <a data-testid="link" href="/">
+                <a data-testid="link" href="/react-portfolio">
                     
                     Bryan Dumpit: Web Development Portfolio
                 </a>
